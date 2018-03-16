@@ -1,0 +1,10 @@
+{
+	"$$schema": "http://localhost:8000/schemas/validators/edge_validator.json#",
+	"id": "http://localhost:8000/schemas/$project_/batch_$edge_.json#",
+	"title" : "Batch $edge_title_",
+	"definitions" : {
+		"edge" : {"$$ref": "./$edge_.json#"}
+	},
+	"type" : "array",
+	"items": {"$$ref" : "#/definitions/edge"}
+}

@@ -1,0 +1,10 @@
+{
+	"$schema": "http://localhost:8000/schemas/validators/node_validator.json#",
+	"id": "http://localhost:8000/schemas/ranking/batch_student.json#",
+	"title" : "Batch Student",
+	"definitions" : {
+		"node" : {"$ref": "./student.json#"}
+	},
+	"type" : "array",
+	"items": {"$ref" : "#/definitions/node"}
+}

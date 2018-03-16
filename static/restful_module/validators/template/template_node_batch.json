@@ -1,0 +1,10 @@
+{
+	"$$schema": "http://localhost:8000/schemas/validators/node_validator.json#",
+	"id": "http://localhost:8000/schemas/$project_/batch_$node_.json#",
+	"title" : "Batch $node_title_",
+	"definitions" : {
+		"node" : {"$$ref": "./$node_.json#"}
+	},
+	"type" : "array",
+	"items": {"$$ref" : "#/definitions/node"}
+}

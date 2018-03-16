@@ -1,0 +1,242 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Hyper JSON schema of CollaborationSpotting project at CERN for validating 'Node' element of a graph",
+    "id": "http://localhost:8000/schemas/validators/node_validator.json#",
+    "definitions": {
+        "positiveInteger": {
+            "minimum": 0,
+            "type": "integer"
+        },
+        "positiveIntegerDefault0": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/positiveInteger"
+                },
+                {
+                    "default": 0
+                }
+            ]
+        },
+        "schemaArray": {
+            "items": {
+                "$ref": "#"
+            },
+            "minItems": 1,
+            "type": "array"
+        },
+        "simpleTypes": {
+            "enum": [
+                "array",
+                "boolean",
+                "integer",
+                "null",
+                "number",
+                "object",
+                "string"
+            ]
+        },
+        "stringArray": {
+            "items": {
+            	"type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "requiredArray": {
+        	"items": {
+        		"type": "string"
+        	},
+        	"minItems": 2,
+        	"type": "array",
+        	"uniqueItems": true,
+        	"string_set_requirement" : ["id", "name"]	
+        }
+    },
+    "dependencies": {
+        "exclusiveMaximum": [
+            "maximum"
+        ],
+        "exclusiveMinimum": [
+            "minimum"
+        ]
+    },
+    "properties": {
+        "$schema": {
+            "format": "uri",
+            "type": "string"
+        },
+        "additionalItems": {
+            "anyOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "$ref": "#"
+                }
+            ],
+            "default": {}
+        },
+        "additionalProperties": {
+            "anyOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "$ref": "#"
+                }
+            ],
+            "default": {}
+        },
+        "allOf": {
+            "$ref": "#/definitions/schemaArray"
+        },
+        "anyOf": {
+            "$ref": "#/definitions/schemaArray"
+        },
+        "default": {},
+        "definitions": {
+            "additionalProperties": {
+                "$ref": "#"
+            },
+            "default": {},
+            "type": "object"
+        },
+        "dependencies": {
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "$ref": "#"
+                    },
+                    {
+                        "$ref": "#/definitions/stringArray"
+                    }
+                ]
+            },
+            "type": "object"
+        },
+        "description": {
+            "type": "string"
+        },
+        "enum": {
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "exclusiveMaximum": {
+            "default": false,
+            "type": "boolean"
+        },
+        "exclusiveMinimum": {
+            "default": false,
+            "type": "boolean"
+        },
+        "format": {
+            "type": "string"
+        },
+        "graph_element": {
+        	"type": "string",
+        	"enum": ["node"]
+        },
+        "id": {
+            "format": "uri",
+            "type": "string"
+        },
+        "items": {
+            "anyOf": [
+                {
+                    "$ref": "#"
+                },
+                {
+                    "$ref": "#/definitions/schemaArray"
+                }
+            ],
+            "default": {}
+        },
+        "maxItems": {
+            "$ref": "#/definitions/positiveInteger"
+        },
+        "maxLength": {
+            "$ref": "#/definitions/positiveInteger"
+        },
+        "maxProperties": {
+            "$ref": "#/definitions/positiveInteger"
+        },
+        "maximum": {
+            "type": "number"
+        },
+        "minItems": {
+            "$ref": "#/definitions/positiveIntegerDefault0"
+        },
+        "minLength": {
+            "$ref": "#/definitions/positiveIntegerDefault0"
+        },
+        "minProperties": {
+            "$ref": "#/definitions/positiveIntegerDefault0"
+        },
+        "minimum": {
+            "type": "number"
+        },
+        "multipleOf": {
+            "exclusiveMinimum": true,
+            "minimum": 0,
+            "type": "number"
+        },
+        "not": {
+            "$ref": "#"
+        },
+        "oneOf": {
+            "$ref": "#/definitions/schemaArray"
+        },
+        "parents": {
+        	"type": "array",
+        	"uniqueItems": true,
+        	"minItems": 1,
+        	"items" : {"$ref" : "#"}
+        },
+        "pattern": {
+            "format": "regex",
+            "type": "string"
+        },
+        "patternProperties": {
+            "additionalProperties": {
+                "$ref": "#"
+            },
+            "default": {},
+            "type": "object"
+        },
+        "properties": {
+            "additionalProperties": {
+                "$ref": "#"
+            },
+            "default": {},
+            "type": "object"
+        },
+        "required": {
+            "$ref": "#/definitions/requiredArray"
+        },
+        "title": {
+            "type": "string"
+        },
+        "type": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/simpleTypes"
+                },
+                {
+                    "items": {
+                        "$ref": "#/definitions/simpleTypes"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                }
+            ]
+        },
+        "uniqueItems": {
+            "default": false,
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

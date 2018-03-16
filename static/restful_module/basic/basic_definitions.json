@@ -1,0 +1,30 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:8000/schemas/basic/basic_definitions.json#",
+	"title": "Basic definitions",
+	"definitions": {
+		"id" : {
+			"type" : "string",
+			"minLength" : 10,
+			"maxLength" : 24
+		},
+		"basic_string" : {
+			"type" : "string",
+			"maxLength" : 3000
+		},
+		"basic_number" : {
+			"type" : "number"
+		},
+		"default_property": {
+			"oneOf" : [
+				{"$ref" : "#/definitions/basic_string"},
+				{"$ref" : "#/definitions/basic_number"}
+			]
+		},
+		"node_type": {
+			"type": "string",
+			"enum" : ["author_keyword", "category", "company", "institute", "organisation", "parent", "processed_author_keyword", "publication", "published_item",
+			"subject_category"]
+		}
+	}
+}
