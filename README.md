@@ -16,7 +16,6 @@ Python packages:
 * Django REST framework (version 3.6.3)
 * Py2neo (version 2.0.7)
 * JSON Schema (version 2.5.1)
-* JSON (version )
 
 To execute restful_module/client/minimal_client.py, **requests (version 2.7.0)**  package is necessary.
 
